@@ -1,0 +1,17 @@
+*С помощью рекурсии организовать функцию возведения числа в степень. Формат: function
+power($val, $pow), где $val – заданное число, $pow – степень
+
+ответ:
+
+power($val, $pow){
+    $i = 0;
+    $res = 1;
+    while($i <= $pow){
+        $res *= $val;
+        $i++;
+    }
+    echo $val . ' to the power of ' . $pow . ' = ' . $res;
+}
+$a = 2;
+$b = 3;
+ power ($a, $b);
