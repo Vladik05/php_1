@@ -1,0 +1,36 @@
+Создать галерею фотографий. Она должна состоять из одной страницы, на которой
+пользователь видит все картинки в уменьшенном виде. При клике на фотографию она должна
+открыться в браузере в новой вкладке. Размер картинок можно ограничивать с помощью
+свойства width.  
+
+ответ:
+
+<?
+$url = 'gallery_img';
+$images = function ($url) {
+  $big = array_slice(scandir($url."/big/"), 2);
+  $small = array_slice(scandir($url."/small/"), 2);
+  $allImages = array ('big' => $big, 'small' => $small);
+  foreach ($allImages as $a => $b) {
+    if ($a == 'big') {
+      $url1 = $a;
+    }
+    if ($a == 'small') {
+      $url2 = $a;
+    }
+      foreach ($b as $c => $d) {
+        if ($a == 'big') {
+          $img1 = $d;
+        } elseif ($a == 'small') {
+          $img2 = $d;
+        }
+        echo "<a rel=\"gallery\" class=\"photo\" href=\"gallery_img/{$url1}/{$img1}\"><img src=\"gallery_img/{$url2}/{$img2}\" width=\"150\" height=\"100\" /></a>";
+
+      }
+  }
+
+
+
+
+};
+echo$images($url);
